@@ -18,16 +18,16 @@ public class AvailableNumberMapperTest {
         NumberPlate someDomain = mapper.toNumberPlate(someEntity);
         NumberPlate lastDomain = mapper.toNumberPlate(lastEntity);
 
-        assertEquals("А000АА116", firstDomain.code());
-        assertEquals("А234АВ116", someDomain.code());
-        assertEquals("Х999ХХ116", lastDomain.code());
+        assertEquals("А000АА 116 RUS", firstDomain.code());
+        assertEquals("А234АВ 116 RUS", someDomain.code());
+        assertEquals("Х999ХХ 116 RUS", lastDomain.code());
     }
 
     @Test
     public void Should_Correctly_Map_To_Entity() {
-        NumberPlate firstDomain = new NumberPlate("А000АА116");
-        NumberPlate someDomain = new NumberPlate("А234АВ116");
-        NumberPlate lastDomain = new NumberPlate("Х999ХХ116");
+        NumberPlate firstDomain = new NumberPlate("А000АА 116 RUS");
+        NumberPlate someDomain = new NumberPlate("А234АВ 116 RUS");
+        NumberPlate lastDomain = new NumberPlate("Х999ХХ 116 RUS");
 
         AvailableNumber firstEntity = mapper.toAvailableNumber(firstDomain);
         AvailableNumber someEntity = mapper.toAvailableNumber(someDomain);
@@ -40,7 +40,7 @@ public class AvailableNumberMapperTest {
 
     @Test
     public void Should_Correctly_Map_To_Entity_And_Back() {
-        NumberPlate someDomain = new NumberPlate("А234АВ116");
+        NumberPlate someDomain = new NumberPlate("А234АВ 116 RUS");
 
         assertEquals(someDomain, mapper.toNumberPlate(mapper.toAvailableNumber(someDomain)));
     }

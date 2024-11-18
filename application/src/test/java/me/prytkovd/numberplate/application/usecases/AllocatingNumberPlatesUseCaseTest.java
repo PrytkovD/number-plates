@@ -47,7 +47,7 @@ public class AllocatingNumberPlatesUseCaseTest {
     @Test
     public void allocateNextAvailable_Should_Return_NumberPlate_When_Available() {
         //GIVEN
-        NumberPlate expectedPlate = new NumberPlate("А000АА116");
+        NumberPlate expectedPlate = new NumberPlate("А000АА 116 RUS");
 
         when(numberPlates.allocateNextAvailable())
             .thenReturn(Optional.of(expectedPlate));
@@ -96,7 +96,7 @@ public class AllocatingNumberPlatesUseCaseTest {
     @Test
     public void allocateRandomAvailable_Should_Return_NumberPlate_When_Available() {
         //GIVEN
-        NumberPlate expectedPlate = new NumberPlate("А000АА116");
+        NumberPlate expectedPlate = new NumberPlate("А000АА 116 RUS");
 
         when(numberPlates.allocateRandomAvailable())
             .thenReturn(Optional.of(expectedPlate));

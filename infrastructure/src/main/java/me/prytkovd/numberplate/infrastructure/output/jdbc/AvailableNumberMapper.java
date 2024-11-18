@@ -17,7 +17,7 @@ public class AvailableNumberMapper {
         Character letter2 = letters.charAt(id % 12);
         id /= 12;
         Character letter1 = letters.charAt(id % 12);
-        String code = "%c%03d%c%c116".formatted(letter1, number, letter2, letter3);
+        String code = "%c%03d%c%c 116 RUS".formatted(letter1, number, letter2, letter3);
         return new NumberPlate(code);
     }
 

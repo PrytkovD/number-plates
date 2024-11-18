@@ -23,10 +23,6 @@ subprojects {
     test {
         finalizedBy jacocoTestReport
         useJUnitPlatform()
-
-        testLogging {
-            showStandardStreams = true
-        }
     }
 
     jacocoTestReport {

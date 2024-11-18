@@ -21,13 +21,15 @@ public class NumberPlateTest {
     public void Constructor_Should_Throw_IllegalArgumentException_When_Code_Is_Invalid() {
         //GIVEN
         List<String> invalidCodes = List.of(
-            "Z123ВЕ116",
-            "А123ВЕ117",
-            "А12ВЕ116",
-            "А123ВЕ1167",
-            "А123В116",
-            " А123ВЕ116",
-            "А123ВЕ116 ",
+            "Z123ВЕ 116 RUS",
+            "А123ВЕ 117 RUS",
+            "А12ВЕ 116 RUS",
+            "А123ВЕ 1167 RUS",
+            "А123В 116 RUS",
+            " А123ВЕ 116 RUS",
+            "А123ВЕ 116 RUS ",
+            "А123ВЕ116",
+            "А123ВЕ116 RUS",
             ""
         );
 
@@ -42,9 +44,9 @@ public class NumberPlateTest {
     public void Should_Construct_When_Code_Is_Valid() {
         //GIVEN
         List<String> validCodes = List.of(
-            "А123ВЕ116",
-            "А000АА116",
-            "Х999ХХ116"
+            "А123ВЕ 116 RUS",
+            "А000АА 116 RUS",
+            "Х999ХХ 116 RUS"
         );
 
         //WHEN

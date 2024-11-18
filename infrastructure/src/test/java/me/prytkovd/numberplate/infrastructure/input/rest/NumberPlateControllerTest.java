@@ -26,7 +26,7 @@ public class NumberPlateControllerTest {
 
     @Test
     public void allocateNextAvailableNumberPlate_Should_Respond_OK_With_TextPlain_When_Available() throws Exception {
-        NumberPlate expectedPlate = new NumberPlate("А000АА116");
+        NumberPlate expectedPlate = new NumberPlate("А000АА 116 RUS");
 
         when(allocatingNumberPlates.allocateNextAvailable())
             .thenReturn(Optional.of(expectedPlate));
@@ -52,7 +52,7 @@ public class NumberPlateControllerTest {
 
     @Test
     public void allocateRandomAvailableNumberPlate_Should_Respond_OK_With_TextPlain_When_Available() throws Exception {
-        NumberPlate expectedPlate = new NumberPlate("А000АА116");
+        NumberPlate expectedPlate = new NumberPlate("А000АА 116 RUS");
 
         when(allocatingNumberPlates.allocateRandomAvailable())
             .thenReturn(Optional.of(expectedPlate));
