@@ -1,0 +1,35 @@
+allprojects {
+    group = 'me.prytkovd'
+    version = '0.1.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.34'
+        annotationProcessor 'org.projectlombok:lombok:1.18.34'
+        testCompileOnly 'org.projectlombok:lombok:1.18.34'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.5'
+        testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+    }
+
+    test {
+        finalizedBy jacocoTestReport
+        useJUnitPlatform()
+
+        testLogging {
+            showStandardStreams = true
+        }
+    }
+
+    jacocoTestReport {
+        dependsOn test
+    }
+}

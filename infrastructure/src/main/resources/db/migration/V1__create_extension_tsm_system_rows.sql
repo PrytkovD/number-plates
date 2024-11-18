@@ -1,0 +1,1 @@
+create extension tsm_system_rows;

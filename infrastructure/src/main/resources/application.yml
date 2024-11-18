@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: ${DATABASE_USER}
+    username: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://postgres:5432/${DATABASE_NAME}
+server:
+  servlet:
+    context-path: /number
+logging:
+  level:
+    org.springframework.jdbc: trace
+    org.springframework.retry: trace

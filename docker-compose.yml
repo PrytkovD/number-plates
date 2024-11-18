@@ -1,0 +1,41 @@
+services:
+  numberplate:
+    image: numberplate:latest
+    build:
+      context: .
+      args:
+        DOCKER_BUILDKIT: 1
+        BUILDKIT_PROGRESS: plain
+    restart: "no"
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_USER
+      - DATABASE_PASSWORD
+      - DATABASE_NAME
+    networks:
+      - numberplate
+  postgres:
+    image: postgres:17.0-alpine
+    restart: "no"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+    networks:
+      - numberplate
+volumes:
+  postgres_data:
+  redis_data:
+networks:
+  numberplate:
